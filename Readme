@@ -1,0 +1,101 @@
+# Job Backend API Documentation
+
+This document provides an overview of all the API endpoints available in the Job Backend application, along with their functionality and usage.
+
+---
+
+## Base URL
+
+```
+http://localhost:3000/api
+```
+
+---
+## Front end
+```
+https://github.com/rawatshahab/job-tracker
+```
+
+## 📌 Endpoints
+
+### 1. **Add a Job**
+- **Method:** POST
+- **Endpoint:** `/addjob`
+- **Description:** Adds a new job application to the database.
+- **Request Body:**
+```json
+{
+  "company": "Google",
+  "role": "SDE",
+  "status": "applied",
+  "date": "2025-04-11",
+  "link": "https://careers.google.com"
+}
+```
+- **Success Response:**
+```json
+{
+  "message": "Job added successfully"
+}
+```
+
+---
+
+### 2. **Get All Jobs**
+- **Method:** GET
+- **Endpoint:** `/getjobs`
+- **Description:** Retrieves all job applications from the database.
+- **Success Response:**
+```json
+[
+  {
+    "_id": "jobid123",
+    "company": "Google",
+    "role": "SDE",
+    "status": "applied",
+    "date": "2025-04-11",
+    "link": "https://careers.google.com"
+  },
+  ...
+]
+```
+
+---
+
+### 3. **Delete a Job**
+- **Method:** DELETE
+- **Endpoint:** `/deletejob/:id`
+- **Description:** Deletes a specific job application by ID.
+- **Success Response:**
+```json
+{
+  "message": "Job deleted successfully"
+}
+```
+
+---
+
+### 4. **Update Job Status**
+- **Method:** PUT
+- **Endpoint:** `/updatejob/:id`
+- **Description:** Updates the status of a specific job application.
+- **Request Body:**
+```json
+{
+  "status": "interview"
+}
+```
+- **Success Response:**
+```json
+{
+  "message": "Job updated successfully"
+}
+```
+
+---
+
+## 🗒 Notes
+
+- Ensure MongoDB is running and connected.
+- Use tools like Postman to test API routes.
+- Server runs on port `3000` by default.
