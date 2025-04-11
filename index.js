@@ -1,11 +1,11 @@
 const express  = require('express');
 const mongoose = require('mongoose');
 const cors     = require('cors');
-
+require('dotenv').config();
 const app = express();
 app.use(cors());
 app.use(express.json());
-mongoose.connect("mongodb+srv://mayank2402:Qwe%401234@collegeproject.hu9lxtu.mongodb.net/?retryWrites=true&w=majority&appName=CollegeProject");
+mongoose.connect(process.env.REACT_APP_MONGO);
 mongoose.connection.on('connected', () => {
     console.log('MongoDB connected successfully');
 });
